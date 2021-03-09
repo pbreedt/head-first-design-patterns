@@ -4,8 +4,8 @@ import (
 	"fmt"
 )
 
-// Ducker is "idiomatic" Go naming, but silly here
-//- did not matter since we're just proving concepts here
+// Ducker is "idiomatic" Go naming, but silly
+// here it doesn't matter since we're just proving concepts here
 type Ducker interface {
 	Display()
 	Swim()
