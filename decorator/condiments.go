@@ -9,10 +9,10 @@ type SteamedMilk struct {
 }
 
 // NewSteamedMilk: SteamedMilk can only be created with a beverage
-func NewSteamedMilk(b Beverage) Beverage {
+func NewSteamedMilk(b Beverage) SteamedMilk {
 	sm := SteamedMilk{}
 	sm.beverage = b
-	return Beverage(sm)
+	return sm
 }
 
 // Description of Beverage is altered by the SteamedMilk
@@ -30,10 +30,10 @@ type Mocha struct {
 	beverage Beverage
 }
 
-func NewMocha(b Beverage) Beverage {
+func NewMocha(b Beverage) Mocha {
 	m := Mocha{}
 	m.beverage = b
-	return Beverage(m)
+	return m
 }
 
 func (m Mocha) Description() string {
@@ -49,10 +49,10 @@ type Soy struct {
 	beverage Beverage
 }
 
-func NewSoy(b Beverage) Beverage {
+func NewSoy(b Beverage) Soy {
 	s := Soy{}
 	s.beverage = b
-	return Beverage(s)
+	return s
 }
 
 func (s Soy) Description() string {
@@ -68,10 +68,10 @@ type Whip struct {
 	beverage Beverage
 }
 
-func NewWhip(b Beverage) Beverage {
+func NewWhip(b Beverage) Whip {
 	w := Whip{}
 	w.beverage = b
-	return Beverage(w)
+	return w
 }
 
 func (w Whip) Description() string {
