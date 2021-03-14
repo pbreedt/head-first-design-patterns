@@ -2,10 +2,6 @@ package factory
 
 import "fmt"
 
-type PizzaStore interface {
-	OrderPizza(PizzaCreator, pizzaType string) Pizza
-}
-
 /*
 PizzaCreator defines the "Factory method"
 Why an additional interface for CreatePizza?
@@ -15,6 +11,11 @@ Why an additional interface for CreatePizza?
 */
 type PizzaCreator interface {
 	CreatePizza(pizzaType string) Pizza
+}
+
+// PizzaStore no longer have the CreatePizza, but OrderPizza now takes a PizzaCreator as input
+type PizzaStore interface {
+	OrderPizza(PizzaCreator, pizzaType string) Pizza
 }
 
 type BasePizzaStore struct{}

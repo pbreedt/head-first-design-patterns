@@ -1,6 +1,9 @@
 package factory
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 // ChicagoPizzaStore implements the PizzaStore interface since it inherits this behavior from BasePizzaStore
 type ChicagoPizzaStore struct {
@@ -15,9 +18,18 @@ func NewChicagoPizzaStore() ChicagoPizzaStore {
 func (cps ChicagoPizzaStore) CreatePizza(pizzaType string) Pizza {
 	var p Pizza
 
-	switch pizzaType {
+	switch strings.ToLower(pizzaType) {
 	case "cheese":
 		p = NewChicagoStyleCheesePizza()
+		return p
+	case "pepperoni":
+		p = NewChicagoStylePepperoniPizza()
+		return p
+	case "clam":
+		p = NewChicagoStyleClamPizza()
+		return p
+	case "veggie":
+		p = NewChicagoStyleVeggiePizza()
 		return p
 	}
 	p = BasePizza{}
@@ -44,11 +56,28 @@ func (cp ChicagoStyleCheesePizza) Cut() {
 }
 
 type ChicagoStylePepperoniPizza struct {
-	//...not implemented
+	BasePizza
 }
+
+func NewChicagoStylePepperoniPizza() ChicagoStylePepperoniPizza {
+	//...not implemented
+	return ChicagoStylePepperoniPizza{}
+}
+
 type ChicagoStyleClamPizza struct {
-	//...not implemented
+	BasePizza
 }
-type ChicagoStyleVeggiePizza struct {
+
+func NewChicagoStyleClamPizza() ChicagoStyleClamPizza {
 	//...not implemented
+	return ChicagoStyleClamPizza{}
+}
+
+type ChicagoStyleVeggiePizza struct {
+	BasePizza
+}
+
+func NewChicagoStyleVeggiePizza() ChicagoStyleVeggiePizza {
+	//...not implemented
+	return ChicagoStyleVeggiePizza{}
 }

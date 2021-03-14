@@ -1,5 +1,5 @@
 # head-first-design-patterns
-Implementation of design patterns covered by the book "Head First Design Patterns"
+Implementation of design patterns covered by the book ["Head First Design Patterns"](https://www.amazon.com/_/dp/0596007124?tag=oreilly20-20) by [O'Reilly](https://www.oreilly.com/library/view/head-first-design/0596007124/)
 
 An adaptation and continuation of work first started by [hypersport](https://github.com/hypersport/Head-First-Design-Patterns)
 

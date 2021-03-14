@@ -1,5 +1,7 @@
 package factory
 
+import "strings"
+
 // NYPizzaStore implements the PizzaStore interface since it inherits this behavior from BasePizzaStore
 type NYPizzaStore struct {
 	BasePizzaStore
@@ -13,9 +15,18 @@ func NewNYPizzaStore() NYPizzaStore {
 func (cps NYPizzaStore) CreatePizza(pizzaType string) Pizza {
 	var p Pizza
 
-	switch pizzaType {
+	switch strings.ToLower(pizzaType) {
 	case "cheese":
 		p = NewNYStyleCheesePizza()
+		return p
+	case "pepperoni":
+		p = NewNYStylePepperoniPizza()
+		return p
+	case "clam":
+		p = NewNYStyleClamPizza()
+		return p
+	case "veggie":
+		p = NewNYStyleVeggiePizza()
 		return p
 	}
 	p = BasePizza{}
@@ -37,11 +48,28 @@ func NewNYStyleCheesePizza() NYStyleCheesePizza {
 }
 
 type NYStylePepperoniPizza struct {
-	//...not implemented
+	BasePizza
 }
+
+func NewNYStylePepperoniPizza() NYStylePepperoniPizza {
+	//...not implemented
+	return NYStylePepperoniPizza{}
+}
+
 type NYStyleClamPizza struct {
-	//...not implemented
+	BasePizza
 }
-type NYStyleVeggiePizza struct {
+
+func NewNYStyleClamPizza() NYStyleClamPizza {
 	//...not implemented
+	return NYStyleClamPizza{}
+}
+
+type NYStyleVeggiePizza struct {
+	BasePizza
+}
+
+func NewNYStyleVeggiePizza() NYStyleVeggiePizza {
+	//...not implemented
+	return NYStyleVeggiePizza{}
 }
